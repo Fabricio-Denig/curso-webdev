@@ -116,7 +116,7 @@
 
 //Ex 2:
 
-let nota = 10
+let nota = 9
 switch (nota) {
     case 10:
         console.log("Nota Máxima!",nota);        
@@ -127,7 +127,7 @@ switch (nota) {
         console.log("Bom",nota);
     case 5:
         console.log("Regular",nota);
-
     default:
+        console.log("Nota insuficiente")
         break;
 }
