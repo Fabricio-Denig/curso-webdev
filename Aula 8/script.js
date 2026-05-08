@@ -61,45 +61,65 @@ console.log(recuperado.nome);
 let tarefas = JSON.parse(localStorage.getItem("tarefas")) || [];
 
 const renderizarTarefas = () => {
+
   const lista = document.getElementById("lista-tarefas");
+
   lista.innerHTML = "";
+
   tarefas.forEach((t) => {
+
     const li = document.createElement("li");
+
     li.textContent = t;
+
     lista.appendChild(li);
+
   });
+
 };
+
+
 
 renderizarTarefas();
 
+
+
 const addTarefa = () => {
+
   const input = document.getElementById("input-tarefa");
-  
-  if (input.value.trim() === "") return; // Evita adicionar tarefa vazia
 
   tarefas.push(input.value);
 
-  // --- O PULO DO GATO ESTÁ AQUI ---
-  // 1. Salva a lista atualizada no LocalStorage (senão ao dar F5 some tudo)
-  localStorage.setItem("tarefas", JSON.stringify(tarefas));
-  
-  // 2. Chama a função para desenhar a lista de novo na tela
-  renderizarTarefas();
-  
   input.value = "";
+
 };
+
+
 
 document.getElementById("form-tarefa").onsubmit = (event) => {
+
   event.preventDefault();
+
   addTarefa();
+
 };
 
-const limparTarefas = () => {
-  tarefas = [];
-  localStorage.removeItem("tarefas");
-  renderizarTarefas();
-};
+
+
+const limparTarefas = () =>{
+
+  tarefas = []
+
+  localStorage.removeItem("tarefas")
+
+  renderizarTarefas()
+
+}
+
+
 
 document.getElementById("btn-limpar").onclick = () => {
-  limparTarefas();
-};
+
+  limparTarefas()
+
+}
